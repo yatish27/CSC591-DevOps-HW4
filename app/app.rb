@@ -8,7 +8,7 @@ class Website < ActiveRecord::Base
 end
 
 class App < Sinatra::Base
-  @@redis = Redis.new
+  @@redis = Redis.new(:port => ENV['REDIS_P'])
   register Sinatra::ActiveRecordExtension
   set :sessions, true
 
